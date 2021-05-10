@@ -670,7 +670,7 @@ BoxCollider:
   m_GameObject: {fileID: 507875900}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5470369, y: 1.5440669, z: 2.3624945}
   m_Center: {x: 0.07579255, y: -0.27203345, z: -0.68124723}
@@ -1126,7 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06082388bfa8374c82c477afce839ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.7
+  movementSpeed: 7
 --- !u!54 &711648911
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1168,8 +1168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc046d129a9cd04d8ef9ddb729d4cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalFillSpeed: 0.1
-  overWorkedTimer: 10
+  normalFillSpeed: 1
+  overWorkedTimer: 30
   relaxTimer: 5
 --- !u!1 &841176515
 GameObject:
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1277877454}
-  timer: 300
+  timer: 270
 --- !u!1 &1474788847
 GameObject:
   m_ObjectHideFlags: 0

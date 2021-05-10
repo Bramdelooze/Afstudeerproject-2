@@ -24,8 +24,8 @@ public class PlayerProductivity : MonoBehaviour
     {
         ResetOverworkedTimer();
         ResetRelaxTimer();
-        boostFill = normalFillSpeed * 10;
-        slowFillSpeed = normalFillSpeed / 2;
+        boostFill = normalFillSpeed * 5;
+        slowFillSpeed = normalFillSpeed / 4;
         productivitybarScript = GetComponent<Productivitybar>();
     }
 
@@ -76,11 +76,11 @@ public class PlayerProductivity : MonoBehaviour
             isWorking = true;
             if (isProductive)
             {
-                productivitybarScript.productivitySlider.value += normalFillSpeed;
+                productivitybarScript.productivitySlider.value += normalFillSpeed * Time.deltaTime;
             }
             else
             {
-                productivitybarScript.productivitySlider.value += slowFillSpeed;
+                productivitybarScript.productivitySlider.value += slowFillSpeed * Time.deltaTime;
             }
         }
     }

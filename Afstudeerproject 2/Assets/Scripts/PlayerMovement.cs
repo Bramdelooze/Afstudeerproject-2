@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PleyerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     //private Rigidbody myRigidBody;
     public float movementSpeed = 5;
