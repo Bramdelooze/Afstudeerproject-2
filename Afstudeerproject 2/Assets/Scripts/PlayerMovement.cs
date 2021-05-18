@@ -13,10 +13,10 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
+    //Moves the player on the y-axis but within the borders of the camera
     private void Move()
     {
         float verticalInput = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
-        //float horizontalInput = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.5f, 4.5f), transform.position.z);
 
