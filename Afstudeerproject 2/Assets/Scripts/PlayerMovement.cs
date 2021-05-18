@@ -15,11 +15,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        float verticalInput = Input.GetAxis("Vertical") * movementSpeed;
-        float horizontalInput = Input.GetAxis("Horizontal") * movementSpeed;
-        verticalInput *= Time.deltaTime;
-        horizontalInput *= Time.deltaTime;
+        float verticalInput = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+        //float horizontalInput = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
 
-        transform.Translate(horizontalInput, verticalInput, 0);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.5f, 4.5f), transform.position.z);
+
+        transform.Translate(0, verticalInput, 0);
     }
 }
