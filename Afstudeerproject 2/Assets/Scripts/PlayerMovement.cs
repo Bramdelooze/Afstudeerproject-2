@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        transform.position = transform.position;
     }
 
     private void Move()
@@ -21,6 +20,6 @@ public class PlayerMovement : MonoBehaviour
         verticalInput *= Time.deltaTime;
         horizontalInput *= Time.deltaTime;
 
-        transform.Translate(horizontalInput, 0, verticalInput);
+        transform.Translate(horizontalInput, verticalInput, 0);
     }
 }
