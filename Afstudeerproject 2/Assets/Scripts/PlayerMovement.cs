@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +8,17 @@ public class PlayerMovement : MonoBehaviour
     //private Rigidbody myRigidBody;
     public float movementSpeed = 5;
 
+    public static event Action OnPlayerFlying;
+
     // Update is called once per frame
     void FixedUpdate()
     {
         Move();
+    }
+
+    private void Update()
+    {
+        OnPlayerFlying();
     }
 
     //Moves the player on the y-axis but within the borders of the camera

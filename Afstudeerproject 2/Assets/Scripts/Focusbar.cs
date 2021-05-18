@@ -7,13 +7,28 @@ public class Focusbar : MonoBehaviour
 {
     private Slider focusSlider;
 
+    private void OnEnable()
+    {
+        PlayerMovement.OnPlayerFlying += PlayerIsFlying;
+    }
+
+    private void OnDisable()
+    {
+        PlayerMovement.OnPlayerFlying -= PlayerIsFlying;
+    }
+
     private void Awake()
     {
         focusSlider = GetComponent<Slider>();
     }
 
-    public void MoveSliderUp(float value)
+    private void PlayerIsFlying()
     {
-        focusSlider.value += value;
+        MoveSliderDown(1 * Time.deltaTime);
+    }
+
+    public void MoveSliderDown(float value)
+    {
+        focusSlider.value -= value;
     }
 }
