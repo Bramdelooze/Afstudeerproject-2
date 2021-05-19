@@ -18,7 +18,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        OnPlayerFlying();
+        if(OnPlayerFlying != null)
+        {
+            OnPlayerFlying();
+        }
     }
 
     //Moves the player on the y-axis but within the borders of the camera

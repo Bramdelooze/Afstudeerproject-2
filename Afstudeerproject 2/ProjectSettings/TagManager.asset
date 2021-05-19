@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Work Space
+  - Planet
+  - Meteorite
+  - Cleaner
   layers:
   - Default
   - TransparentFX

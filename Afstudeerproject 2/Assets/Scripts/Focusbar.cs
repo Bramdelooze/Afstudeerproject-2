@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Focusbar : MonoBehaviour
+public class FocusBar : MonoBehaviour
 {
     private Slider focusSlider;
 
@@ -24,11 +24,11 @@ public class Focusbar : MonoBehaviour
 
     private void PlayerIsFlying()
     {
-        MoveSliderDown(1 * Time.deltaTime);
+        MoveSlider(-1 * Time.deltaTime);
     }
 
-    public void MoveSliderDown(float value)
+    public void MoveSlider(float value)
     {
-        focusSlider.value -= value;
+        focusSlider.value += value;
     }
 }
