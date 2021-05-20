@@ -8,5 +8,15 @@ public class DontDestroy : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(this);
+        RemoveDuplicates();
+    }
+
+    //Singleton pattern to remove duplicates of this script
+    private void RemoveDuplicates()
+    {
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
     }
 }
