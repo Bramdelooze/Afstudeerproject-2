@@ -13,10 +13,14 @@ public class PlayerStates : MonoBehaviour
         focusBar = FindObjectOfType<FocusBar>();
     }
 
+    private void Update()
+    {
+        Attack();
+    }
+
     private void FixedUpdate()
     {
         Move();
-        Attack();
     }
 
     private void Attack()
