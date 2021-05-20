@@ -8,6 +8,8 @@ TagManager:
   - Planet
   - Meteorite
   - Cleaner
+  - Enemy
+  - UFO
   layers:
   - Default
   - TransparentFX
