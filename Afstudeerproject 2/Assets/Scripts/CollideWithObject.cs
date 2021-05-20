@@ -24,13 +24,18 @@ public class CollideWithObject : MonoBehaviour
             focusBarScript.MoveSlider(-4);
         }
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D collider)
     {
-        if (Input.GetKeyDown(KeyCode.Space) && other.tag == "Planet")
+        if (Input.GetKey(KeyCode.Space) && collider.tag == "Planet")
         {
-            //Land on planet
-            print("Landing initiated");
-            SceneManager.LoadScene(1);
+            LandOnPlanet();
         }
+    }
+
+    void LandOnPlanet()
+    {
+        //Land on planet
+        print("Landing initiated");
+        SceneManager.LoadScene(1);
     }
 }
