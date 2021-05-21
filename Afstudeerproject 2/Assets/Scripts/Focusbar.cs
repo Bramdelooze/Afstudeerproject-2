@@ -41,7 +41,7 @@ public class FocusBar : MonoBehaviour
 
     private void PlayerIsFlying()
     {
-        MoveSlider(-1 * Time.deltaTime);
+        MoveSlider(-2 * Time.deltaTime);
     }
 
     public void MoveSlider(float value)
