@@ -9,7 +9,7 @@ public class TravelDistanceTracker : MonoBehaviour
 {
     private TMP_Text distanceText;
     [SerializeField] private float maxDistance = 1000;
-    [SerializeField] private float normalTravelSpeed = 10;
+    [SerializeField] private float normalTravelSpeed = 4;
     [SerializeField] private float slowTravelSpeed = 1;
     private float currentDistanceTraveled;
     private float currentTravelSpeed;
