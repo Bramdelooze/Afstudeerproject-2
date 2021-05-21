@@ -26,7 +26,7 @@ public class SpawnObject : MonoBehaviour
 
     void RandomGameobject()
     {
-        float randomNumber = Random.Range(1, 15);
+        float randomNumber = Random.Range(1, 12);
         if(randomNumber > 1)
         {
             GenerateRandomSpawnPoint();
