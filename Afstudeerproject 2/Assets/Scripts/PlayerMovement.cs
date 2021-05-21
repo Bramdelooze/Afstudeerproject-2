@@ -9,28 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public float VerticalMovementSpeed = 5;
 
     public static event Action OnPlayerFlying;
-    /*
-    private void OnEnable()
-    {
-        FocusBar.OnFocusTooLow += FocusTooLow;
-        FocusBar.OnFocusNormal += FocusNormal;
-    }
-    private void OnDisable()
-    {
-        FocusBar.OnFocusTooLow -= FocusTooLow;
-        FocusBar.OnFocusNormal -= FocusNormal;
-    }
-
-    void FocusTooLow()
-    {
-        ChangeMovementSpeed(VerticalMovementSpeed / 5);
-    }
-
-    void FocusNormal()
-    {
-        ChangeMovementSpeed(VerticalMovementSpeed);
-    }
-    */
 
     // Update is called once per frame
     void FixedUpdate()
