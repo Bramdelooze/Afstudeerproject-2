@@ -21,7 +21,7 @@ public class PlayerMovement : Movement
     void FixedUpdate()
     {
         Move();
-        ConstrainMovement();
+        ConstrainVerticalMovement();
     }
 
     void GetInput()
@@ -29,7 +29,7 @@ public class PlayerMovement : Movement
         base.verticalMovement = Input.GetAxis("Vertical") * VerticalMovementSpeed;    
     }
 
-    void ConstrainMovement()
+    void ConstrainVerticalMovement()
     {
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.5f, 4.5f));
     }
