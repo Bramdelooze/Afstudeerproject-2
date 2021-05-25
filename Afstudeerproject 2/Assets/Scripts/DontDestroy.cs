@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Awake()
     {
+        // Makes sure this object isn't destroyed during scene changes
         DontDestroyOnLoad(this);
         RemoveDuplicates();
     }
