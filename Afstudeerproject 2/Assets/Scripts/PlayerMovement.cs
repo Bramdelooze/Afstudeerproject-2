@@ -3,18 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Movement
 {
-    //private Rigidbody myRigidBody;
     public float VerticalMovementSpeed = 5;
 
     public static event Action OnPlayerFlying;
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        Move();
-    }
 
     private void Update()
     {
@@ -22,20 +15,22 @@ public class PlayerMovement : MonoBehaviour
         {
             OnPlayerFlying();
         }
+        GetInput();
     }
 
-    //Moves the player on the y-axis but within the borders of the camera
-    private void Move()
+    void FixedUpdate()
     {
-        float verticalInput = Input.GetAxis("Vertical") * VerticalMovementSpeed * Time.deltaTime;
-
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.5f, 4.5f), transform.position.z);
-
-        transform.Translate(0, verticalInput, 0);
+        Move();
+        ConstrainMovement();
     }
 
-    public void ChangeMovementSpeed(float speed)
+    void GetInput()
     {
-        VerticalMovementSpeed = speed;
+        base.verticalMovement = Input.GetAxis("Vertical") * VerticalMovementSpeed;    
+    }
+
+    void ConstrainMovement()
+    {
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.5f, 4.5f));
     }
 }
