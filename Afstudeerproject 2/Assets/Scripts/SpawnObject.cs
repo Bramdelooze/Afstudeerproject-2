@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class SpawnObject : MonoBehaviour
 {
-    public GameObject[] spawnableObject;
-    public Transform[] spawnPoints;
+    [SerializeField] private GameObject[] spawnableObject;
+    [SerializeField] private Transform[] spawnPoints;
 
-    private int RandomSpawnPoint;
-    private int PreviousPoint;
 
     private void Start()
     {
@@ -19,39 +17,30 @@ public class SpawnObject : MonoBehaviour
     {
         for(; ; )
         {
-            RandomGameobject();
+            InstantiateObject();
             yield return new WaitForSeconds(.8f);
         }
     }
 
-    void RandomGameobject()
+    void InstantiateObject()
     {
-        float randomNumber = Random.Range(1, 12);
-        if(randomNumber > 1)
+        Instantiate(RandomGameObject(), spawnPoints[RandomNumber(0, spawnPoints.Length)].position, Quaternion.identity);
+    }
+
+    GameObject RandomGameObject()
+    {
+        if (RandomNumber(1, 12) > 1)
         {
-            GenerateRandomSpawnPoint();
-            InstantiateObject(spawnableObject[0]);
+            return spawnableObject[0];
         }
         else
         {
-            GenerateRandomSpawnPoint();
-            InstantiateObject(spawnableObject[1]);
+            return spawnableObject[1];
         }
     }
 
-    void GenerateRandomSpawnPoint()
+    int RandomNumber(int min, int max)
     {
-        RandomSpawnPoint = Random.Range(0, 4);
-        if (RandomSpawnPoint == PreviousPoint)
-        {
-            GenerateRandomSpawnPoint();
-            return;
-        }
-        PreviousPoint = RandomSpawnPoint;
-    }
-
-    void InstantiateObject(GameObject gameObject)
-    {
-        Instantiate(gameObject, spawnPoints[RandomSpawnPoint].position, Quaternion.identity);
+        return Random.Range(min, max);
     }
 }
