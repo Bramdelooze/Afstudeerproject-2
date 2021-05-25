@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float horizontalMovement;
-    public float verticalMovement;
-    // Start is called before the first frame update
+    protected float horizontalMovement;
+    protected float verticalMovement;
 
-    private void FixedUpdate()
-    {
-        Move();
-    }
-
-    private void Move()
+    protected void Move()
     {
         transform.Translate(horizontalMovement, verticalMovement, 0);
     }
