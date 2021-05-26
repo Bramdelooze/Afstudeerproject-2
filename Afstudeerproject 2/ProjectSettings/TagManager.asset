@@ -5,11 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Work Space
-  - Planet
   - Meteorite
   - Cleaner
   - Enemy
   - UFO
+  - Planet
   layers:
   - Default
   - TransparentFX

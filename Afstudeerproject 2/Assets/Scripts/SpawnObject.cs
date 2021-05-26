@@ -24,7 +24,9 @@ public class SpawnObject : MonoBehaviour
 
     void InstantiateObject()
     {
-        Instantiate(RandomGameObject(), spawnPoints[RandomNumber(0, spawnPoints.Length)].position, Quaternion.identity);
+        GameObject randomGameobject = RandomGameObject();
+        float ZPosition = randomGameobject.transform.position.z;
+        Instantiate(randomGameobject, SpawnPointWithoutZ(spawnPoints[RandomNumber(0, spawnPoints.Length)].position, ZPosition), Quaternion.identity);
     }
 
     GameObject RandomGameObject()
@@ -37,6 +39,11 @@ public class SpawnObject : MonoBehaviour
         {
             return spawnableObject[1];
         }
+    }
+
+    Vector3 SpawnPointWithoutZ(Vector3 spawnPoint, float originalZPos)
+    {
+        return new Vector3(spawnPoint.x, spawnPoint.y, originalZPos);
     }
 
     int RandomNumber(int min, int max)
