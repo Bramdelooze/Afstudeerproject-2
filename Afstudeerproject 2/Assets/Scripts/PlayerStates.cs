@@ -10,9 +10,11 @@ public class PlayerStates : MonoBehaviour
     private FocusBar focusBar;
     private bool enemyIsInRange = false;
     private GameObject damagedEnemy;
+    private Animator animator;
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         focusBar = FindObjectOfType<FocusBar>();
     }
 
@@ -28,11 +30,20 @@ public class PlayerStates : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && enemyIsInRange)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            KillEnemy();
-            focusBar.MoveSlider(20);
+            animator.SetBool("IsAttacking", true);
+            if (enemyIsInRange)
+            {
+                KillEnemy();
+                focusBar.MoveSlider(20);
+            }
         }
+    }
+
+    private void StopAttack()
+    {
+        animator.SetBool("IsAttacking", false);
     }
 
     private void KillEnemy()
@@ -41,12 +52,15 @@ public class PlayerStates : MonoBehaviour
             Destroy(damagedEnemy);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (IsCollisionEnemy(collision))
             enemyIsInRange = true;
+    }
 
-        if(collision.tag == "UFO" && Input.GetKey(KeyCode.Space))
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "UFO" && Input.GetKey(KeyCode.Space))
         {
             SceneManager.LoadScene(1);
         }
