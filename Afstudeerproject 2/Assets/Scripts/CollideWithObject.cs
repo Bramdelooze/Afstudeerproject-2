@@ -10,7 +10,7 @@ public class CollideWithObject : MonoBehaviour
 
     private FocusBar focusBarScript;
 
-    private void Start()
+    private void Awake()
     {
         focusBarScript = FindObjectOfType<FocusBar>();
     }
@@ -34,8 +34,6 @@ public class CollideWithObject : MonoBehaviour
 
     void LandOnPlanet()
     {
-        //Land on planet
-        print("Landing initiated");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }

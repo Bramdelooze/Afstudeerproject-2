@@ -48,7 +48,7 @@ public class PlayerStates : MonoBehaviour
 
         if(collision.tag == "UFO" && Input.GetKey(KeyCode.Space))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 
