@@ -60,7 +60,7 @@ public class PlayerStates : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "UFO" && Input.GetKey(KeyCode.Space))
+        if (collision.tag == "UFO" && Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene(1);
         }
